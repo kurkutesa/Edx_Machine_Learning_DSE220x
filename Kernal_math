@@ -1,0 +1,337 @@
+
+https://www.youtube.com/watch?v=wBVSbVktLIY
+
+The Kernel Trick - THE MATH YOU SHOULD KNOW!
+
+
+machine learning has changed our world
+00:02
+in many ways we have different methods
+00:05
+to learn training data for
+00:06
+classification and regression problems
+00:09
+some parametric methods like polynomial
+00:12
+regression and support vector machines
+00:13
+stand out as being very versatile they
+00:16
+create simple linear boundaries for
+00:18
+simple problems or nonlinear boundaries
+00:21
+for more complex problems so the big
+00:23
+question how are these algorithms so
+00:26
+versatile this is due to something
+00:29
+called kernelization in this video we're
+00:32
+going to kernel eyes linear regression
+00:34
+and show how it can be incorporated in
+00:36
+other algorithms to solve complex
+00:39
+problems so let's get to it
+00:44
+so kernel izing linear regression let's
+00:48
+start from the top this is the output of
+00:51
+a linear agressor X is a vector of
+00:54
+features and W is a vector of weights
+00:56
+and Y is the output real number or
+00:59
+classification it's a good starting
+01:01
+point but the problem here is that it's
+01:04
+linear too simple for many applications
+01:07
+let's change that here Phi of X is a
+01:11
+nonlinear basis function that adds some
+01:13
+more complex features this is now the
+01:15
+output of a polynomial regression note
+01:19
+polynomial regression isn't the same as
+01:21
+nonlinear regression Phi of X is just
+01:24
+square terms cube terms and polynomial
+01:27
+terms in general with this we can create
+01:31
+complex models but how do we find Phi of
+01:34
+X simple normally without the basis
+01:38
+function and just considering the base
+01:40
+features we minimize the least squares
+01:42
+cost function with respect to the
+01:44
+weights after vectorizing and
+01:47
+simplifying you get optimal values as X
+01:50
+transpose X the whole inverse times X
+01:52
+transpose Y I've made a detailed
+01:54
+simplification of this in my linear
+01:57
+regression video so check that out after
+01:59
+this one now what we want is the weights
+02:02
+for the nonlinear basis function so
+02:04
+replace X with Phi want to include
+02:07
+regularization just include lambda I
+02:09
+lambda is regularization parameter and I
+02:12
+is the identity
+02:13
+matrix with Elsa regularization this is
+02:16
+now Ridge regression the point of a
+02:19
+parametric model is to estimate the
+02:21
+value of parameters W which we can do
+02:24
+only if we know Phi or at least the
+02:28
+covariance matrix Phi transpose Phi but
+02:31
+that's pretty hard to compute so you can
+02:34
+clearly see the problem here we're going
+02:37
+to do this entire thing again but this
+02:39
+time with kernelization so consider our
+02:43
+Ridge regression cost function J taking
+02:46
+the derivative with respect to the
+02:48
+weight vector and equating it to 0 we
+02:51
+solve for W to make things easier to
+02:54
+look at we'll call it the first part
+02:56
+alpha so the weights become the dot
+02:59
+product of the basis function and alpha
+03:03
+once again consider the original cost
+03:05
+function and vectorize and substitute
+03:08
+our weight W then we just keep
+03:11
+simplifying the repeated term is 5 phi
+03:16
+transpose which is a square matrix
+03:18
+called the gram matrix or kernel matrix
+03:21
+denoted by k now we're getting to the
+03:25
+juicy stuff the kernel matrix phi phi
+03:28
+transpose has elements that are the dot
+03:31
+products for every pair of feature
+03:33
+vectors this kernel matrix is of
+03:37
+significance because of two properties
+03:39
+one it's symmetric so the matrix equals
+03:43
+its transpose and two the kernel matrix
+03:46
+is positive semi-definite so the product
+03:49
+with any other vector and its transpose
+03:51
+leads to a non negative solution I'll
+03:55
+come back to why these properties are
+03:57
+important in a bit but for now let's use
+04:00
+these properties in our simplification
+04:02
+of the cost function
+04:04
+first off transpose a scalar term we can
+04:08
+do this because scalars are symmetric we
+04:12
+minimize this cost function to get the
+04:13
+optimal value of alpha once we have the
+04:17
+optimal alpha we can express the weights
+04:19
+in terms of this kernel matrix so what's
+04:24
+the difference between this set of
+04:26
+weights and
+04:27
+one that we computed before without
+04:29
+kernels before we had to compute Phi
+04:33
+transpose Phi which is the covariance
+04:35
+matrix but now we need Phi Phi transpose
+04:38
+the kernel matrix but wait it looks like
+04:42
+to compute this inner product as well we
+04:45
+still need Phi however that's actually
+04:48
+not the case
+04:49
+I said before this kernel matrix has two
+04:52
+properties one is that it's symmetric
+04:55
+and two is that it's positive
+04:57
+semi-definite
+04:58
+according to Mercer's theorem a
+05:00
+symmetric positive semi definite
+05:02
+function can be expressed as the inner
+05:05
+product of some Phi in other words we
+05:08
+can rewrite every term in the grand
+05:11
+matrix such that it is a function of
+05:13
+only the base features this is the
+05:17
+kernel trick and the fundamental reason
+05:19
+why kernels are so powerful I'll show
+05:22
+you with an example of how this kernel
+05:24
+trick works consider this polynomial
+05:27
+nonlinear basis function we have the
+05:30
+kernel matrix where every term is an
+05:32
+inner product of two samples expanding
+05:36
+these terms we can see that this inner
+05:38
+product of non linear basis functions
+05:40
+can be represented as a function of the
+05:43
+basis vector inputs XM and xn this is an
+05:49
+example of a polynomial kernel function
+05:52
+thus we can compute the kernel matrix K
+05:55
+without knowing the true nature of Phi
+05:58
+and in the same way we can show that the
+06:01
+different standard kernel functions
+06:03
+don't require knowledge of the complex
+06:06
+basis vector Phi so we're able to
+06:10
+express the kernel matrix in terms of
+06:12
+the base features that's great
+06:14
+but how do we make a prediction the most
+06:17
+important part
+06:18
+well what we really need is W transpose
+06:22
+Phi of X where X is the input base
+06:25
+feature vector of the test subject and W
+06:28
+is the learned weights but expanding
+06:30
+this we can eliminate Phi transpose Phi
+06:32
+of X by expressing it as a column vector
+06:36
+of the kernel matrix effectively to make
+06:39
+a prediction
+06:40
+don't need to know the true nature of
+06:42
+fire at all this result is significant
+06:45
+as it shows it even with a complex basis
+06:48
+function we can make predictions with
+06:51
+only the base features this is why
+06:55
+kernel based methods can be so versatile
+06:57
+and are used for simple or complex
+06:59
+classification problems I demonstrated
+07:03
+kernel eyes linear regression in this
+07:04
+video but we can kernel eyes other
+07:07
+algorithms as well and that's all I have
+07:10
+for you now
+07:11
+so if you liked the video hit that like
+07:12
+button if you're new here welcome and
+07:15
+hit that subscribe button ring that bell
+07:17
+for notifications when I upload and if
+07:19
+you're still looking for your daily dose
+07:20
+of AI click our top one of the videos
+07:22
+right here on screen for another awesome
+07:24
+video and I will see you in the next one
+07:27
+bye
