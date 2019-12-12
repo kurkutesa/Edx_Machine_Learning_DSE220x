@@ -7,6 +7,7 @@ This course is an intensive introduction to the most widely-used machine learnin
 * The first goal is to provide a basic intuitive understanding of these techniques: what they are good for, how they work, how they relate to one another, and their strengths and weaknesses. 
 * The second goal is to provide a hands-on feel for these methods through experiments with suitable data sets, using Jupyter notebooks. 
 * The third goal is to understand machine learning methods at a deeper level by delving into their mathematical underpinnings. This is crucial to being able to adapt and modify existing methods and to creatively combining them.
+* The fourth goal is to get familiarize with the Neural Net and Deep Learning.
 
 ## Topics Covered
 * Taxonomy of prediction problems
@@ -25,6 +26,7 @@ This course is an intensive introduction to the most widely-used machine learnin
 * Autoencoders, distributed representations, and deep learning
 * Problem sets, comprehensive quizes followed by programming assignments
 * Final Exam
+
 
 ## Opinion/Comments
 #### I have successfully complete the course and obtained the certification with 90% grades in the final exam. I finished every Engagement, Quiz, Problem Set and Programming Assignment. I believe this is one of the best online course on fundamentals of ML as it maintains a right balance between theory and programming.
