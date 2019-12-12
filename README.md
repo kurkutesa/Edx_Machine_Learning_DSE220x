@@ -23,6 +23,8 @@ This course is an intensive introduction to the most widely-used machine learnin
 * Methods for flat and hierarchical clustering
 * Principal component analysis
 * Autoencoders, distributed representations, and deep learning
+* Problem sets, comprehensive quizes followed by programming assignments
+* Final Exam
 
 ## Opinion/Comments
 #### I have successfully complete the course and obtained the certification with 90% grades in the final exam. I finished every Engagement, Quiz, Problem Set and Programming Assignment. I believe this is one of the best online course on fundamentals of ML as it maintains a right balance between theory and programming.
